@@ -1,13 +1,12 @@
-//import cypressConfig from '../../cypress.config';
 import * as p from '../fixtures/data.json';
 import * as locator from '../support/e2e.js';
 import {VisitnopCommerceStore,addtocart,gotocart,checkout} from '../support/commands'
 
 
 describe('Go to Website', () => {
-  // /var url= cypressConfig.env.baseUrl
+  var url= Cypress.env('baseUrl');
   it('navigates to URL!', () => {
-    cy.VisitnopCommerceStore("https://demo.nopcommerce.com/")
+    cy.VisitnopCommerceStore(url)
   })
   it('searches Product and adds to cart!', () => {
     cy.addtocart(p.productName)
